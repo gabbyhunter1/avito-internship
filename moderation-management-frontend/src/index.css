@@ -117,6 +117,12 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  :root {
+    --chart-approved: theme(colors.green.500);
+    --chart-rejected: theme(colors.red.500);
+    --chart-requestChanges: theme(colors.yellow.500);
+  }
 }
 
 /* Box sizing rules */

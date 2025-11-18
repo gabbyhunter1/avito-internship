@@ -21,8 +21,8 @@ export function Navbar() {
     },
   ];
   return (
-    <div className="flex items-center justify-center fixed bottom-20 w-full">
-      <FloatingDock items={links} />
-    </div>
+    <nav className="flex items-center justify-center fixed bottom-20 w-full pointer-events-none">
+      <FloatingDock desktopClassName="pointer-events-auto" mobileClassName="pointer-events-auto" items={links} />
+    </nav>
   );
 }
