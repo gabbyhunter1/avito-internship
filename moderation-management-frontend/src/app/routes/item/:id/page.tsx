@@ -1,4 +1,4 @@
-import { useParams } from 'react-router';
+import { redirect, useNavigate, useParams } from 'react-router';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.tsx';
 import { Item, ItemDescription, ItemTitle } from '@/components/ui/item.tsx';
 import { Table, TableBody, TableCell, TableRow } from '@/components/ui/table.tsx';
@@ -12,12 +12,15 @@ import NotFound from '@/app/routes/not-found.tsx';
 const ItemPage = () => {
   const { id } = useParams();
 
+  const navigate = useNavigate();
+
   const { data, isLoading, error } = useQuery({
     queryKey: ['adsByID', Number(id)],
     queryFn: () => getAdById(id),
+    retry: (_, { message: status }) => status !== '404' && status !== '401',
   });
 
-  if (error) return <NotFound />;
+  if (error) redirect('/*');
 
   if (!data) return null;
 

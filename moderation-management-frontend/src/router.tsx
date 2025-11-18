@@ -13,8 +13,8 @@ const AppRouter = () => {
         <Route path="/list" element={<ListPage />} />
         <Route path="/item/:id" element={<ItemPage />} />
         <Route path="/stats" element={<StatsPage />} />
-        <Route path="*" element={<NotFound />} />
       </Route>
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };
